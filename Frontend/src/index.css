@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* NITER Science Society Design System 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* NITER Science Society Color Palette */
+    --background: 0 0% 100%;
+    --foreground: 222 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 4.9%;
+
+    /* Primary: Deep Navy Blue */
+    --primary: 223 84% 8%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 223 84% 15%;
+
+    /* Secondary: Electric Blue */
+    --secondary: 210 100% 85%;
+    --secondary-foreground: 223 84% 8%;
+
+    /* Muted: Light blue-gray */
+    --muted: 216 50% 95%;
+    --muted-foreground: 223 20% 40%;
+
+    /* Accent: Bright Science Blue */
+    --accent: 205 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Success: Science Green */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 216 50% 90%;
+    --input: 216 50% 95%;
+    --ring: 205 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Science Society Specific Design Tokens */
+    --science-gradient: linear-gradient(135deg, hsl(223 84% 8%), hsl(210 100% 15%));
+    --hero-gradient: linear-gradient(135deg, hsl(223 84% 8%) 0%, hsl(223 84% 12%) 50%, hsl(205 100% 20%) 100%);
+    --card-shadow: 0 4px 20px hsl(223 84% 8% / 0.1);
+    --glow-shadow: 0 0 30px hsl(205 100% 50% / 0.3);
+    
+    /* Typography */
+    --font-heading: 'Inter', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark theme inherits the same science palette */
+    --background: 223 84% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 223 84% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 223 84% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 205 100% 50%;
+    --primary-foreground: 223 84% 8%;
+
+    --secondary: 223 84% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 223 84% 10%;
+    --muted-foreground: 216 50% 70%;
+
+    --accent: 205 100% 50%;
+    --accent-foreground: 223 84% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 223 84% 12%;
+    --input: 223 84% 10%;
+    --ring: 205 100% 50%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* Science Society Custom Components */
+  .hero-section {
+    @apply relative min-h-screen flex items-center justify-center overflow-hidden;
+    background: var(--hero-gradient);
+  }
+
+  .science-card {
+    @apply bg-card border border-border rounded-lg p-6 transition-all duration-300;
+    box-shadow: var(--card-shadow);
+  }
+
+  .science-card:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--glow-shadow);
+  }
+
+  .nav-link {
+    @apply text-foreground/80 hover:text-accent transition-colors duration-200;
+  }
+
+  .nav-link.active {
+    @apply text-accent font-medium;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary-glow;
+    transition: var(--transition-smooth);
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground;
+    transition: var(--transition-smooth);
+  }
+
+  .section-gradient {
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
