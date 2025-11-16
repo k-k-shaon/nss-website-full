@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import TestimonialsSection from '@/components/TestimonialsSection';
 import EventsSection from '@/components/EventsSection';
 import BlogsSection from '@/components/BlogsSection';
 import ProjectsSection from '@/components/ProjectsSection';
