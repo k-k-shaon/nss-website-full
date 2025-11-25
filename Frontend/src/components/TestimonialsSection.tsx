@@ -1,36 +1,49 @@
 import { Card, CardContent } from '@/components/ui/card';
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+Carousel,
+CarouselContent,
+CarouselItem,
+CarouselNext,
+CarouselPrevious,
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import { Quote } from 'lucide-react';
-import directorImage from '@/assets/niter-logo.png';
+import directorImage from '@/assets/director.jpg';
 import moderatorImage from '@/assets/didar sir.jpg';
-import presidentImage from '@/assets/salehin.jpg';
+import presidentImage from '@/assets/ashik.jpg';
 
 const testimonials = [
-  {
-    name: 'Dr. [Director Name]',
-    designation: 'Director, NITER',
-    image: directorImage,
-    quote: 'Science clubs are the cornerstone of innovation and discovery. Through hands-on exploration and collaborative learning, students transform theoretical knowledge into practical solutions that shape our future.',
-  },
-  {
-    name: 'Didar Ahmed',
-    designation: 'Moderator, NITER Science Society',
-    image: moderatorImage,
-    quote: 'The NITER Science Society embodies the spirit of curiosity and excellence. Our mission is to nurture young minds, fostering a culture where scientific inquiry meets practical application.',
-  },
-  {
-    name: '[President Name]',
-    designation: 'President, NITER Science Society',
-    image: presidentImage,
-    quote: 'Being part of this society has been transformative. Together, we create an ecosystem where passion for science meets opportunity, empowering every member to pursue their dreams and make meaningful contributions.',
-  },
+{
+name: 'Prof. Dr. Ashequl Alam Rana',
+designation: 'Director, National Institute of Textile Engineering and Research (NITER)',
+image: directorImage,
+quote: `It is my great pleasure to acknowledge the meaningful initiatives of the NITER Science Society (NSS) in cultivating a strong culture of scientific curiosity, innovation and student leadership on our campus. NSS continues to play a vital role in enhancing academic engagement through research activities, collaborations and impactful outreach programs that extend beyond the classroom.
+In today’s rapidly advancing world, students must develop not only technical knowledge but also the ability to think critically, communicate clearly and lead with a sense of responsibility. NSS embodies these values by providing a dynamic platform where young talents can explore ideas, challenge themselves and grow into future scientists, engineers and innovators.
+I wholeheartedly appreciate the dedication, enthusiasm and professionalism shown by the NSS team. Their contributions continue to strengthen the reputation of NITER in both academic and social arenas, reflecting our shared commitment to progress and excellence.
+I extend my full support to the Society and encourage all members to continue moving forward with integrity, curiosity and confidence.`,
+},
+{
+name: 'Md. Didarul Islam',
+designation: 'Moderator, NITER Science Society (NSS)',
+image: moderatorImage,
+quote: `On behalf of the NITER Science Society (NSS), I would like to extend my heartfelt appreciation to all students, faculty, and well-wishers who continue to support the growth of scientific culture at our institute. As the Moderator of NSS, it is both an honor and a responsibility to guide a platform dedicated to inspiring curiosity, nurturing talent, and promoting scientific engagement among our students. Through seminars, workshops, competitions, and collaborative activities, NSS aims to create a dynamic environment where young minds can explore science beyond the classroom.
+NITER Science Society is a student driven organization established with the vision of:
+• Encouraging scientific thinking, research aptitude, and innovation
+• Providing students with opportunities to participate in national and international science events
+• Organizing workshops, seminars, skill-development programs, and hands-on scientific activities
+• Creating a bridge between academic knowledge and real-world scientific applications
+• Representing NITER in national science outreach programs and competitions
+For updates on upcoming events, notices, or opportunities, please stay connected with our official NSS communication website.`,
+},
+{
+name: 'Ashikur Rahman',
+designation: 'President, NITER Science Society (NSS), National Institute of Textile Engineering & Research (NITER)',
+image: presidentImage,
+quote: `The NITER Science Society (NSS) symbolizes a shared commitment to curiosity, learning and innovation. We strive to create an environment where students are encouraged to think differently, explore boldly and transform ideas into meaningful contributions.
+With the support of our respected Moderator, our honorable Director Sir and our faculty members, NSS continues to grow as a platform that nurtures scientific thinking and collaborative leadership.
+To all members and volunteers—your dedication is the foundation of our progress. Your energy, creativity and teamwork are what make this society truly vibrant.
+As we move ahead, let us continue to learn, inspire and uplift one another. Together, we carry the spark that will illuminate new paths of knowledge and discovery.`,
+},
 ];
 
 const TestimonialsSection = () => {
@@ -52,20 +65,13 @@ const TestimonialsSection = () => {
         </div>
 
         <Carousel
-          opts={{
-            align: 'start',
-            loop: true,
-          }}
-          plugins={[
-            Autoplay({
-              delay: 5000,
-            }),
-          ]}
+          opts={{ align: 'start', loop: true }}
+          plugins={[Autoplay({ delay: 5000 })]}
           className="w-full max-w-5xl mx-auto"
         >
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
-            <CarouselItem key={index}>
+              <CarouselItem key={index}>
                 <Card className="border-none shadow-lg bg-card/50 backdrop-blur-sm">
                   <CardContent className="p-6 md:p-8">
                     <div className="flex flex-col md:flex-row items-center gap-6">
@@ -73,11 +79,7 @@ const TestimonialsSection = () => {
                       <div className="relative flex-shrink-0">
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-full blur-xl"></div>
                         <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-blue-400/20 shadow-lg">
-                          <img
-                            src={testimonial.image}
-                            alt={testimonial.name}
-                            className="w-full h-full object-cover"
-                          />
+                          <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
                         </div>
                       </div>
 
@@ -88,12 +90,8 @@ const TestimonialsSection = () => {
                           "{testimonial.quote}"
                         </p>
                         <div>
-                          <h4 className="text-lg font-bold text-foreground">
-                            {testimonial.name}
-                          </h4>
-                          <p className="text-blue-600 dark:text-blue-400 font-medium">
-                            {testimonial.designation}
-                          </p>
+                          <h4 className="text-lg font-bold text-foreground">{testimonial.name}</h4>
+                          <p className="text-blue-600 dark:text-blue-400 font-medium">{testimonial.designation}</p>
                         </div>
                       </div>
                     </div>
